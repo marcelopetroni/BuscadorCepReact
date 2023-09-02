@@ -1,0 +1,37 @@
+.container {
+  height: 100vh;
+  background: linear-gradient(#121212, #212b46);
+  display: flex;
+  align-items: center;
+  justify-content: center; /* para tanto o align-tems como o justify-content funcionar precisa ter display:flex */
+  flex-direction: column; /* deixa os items em coluna, uma abaixo do outro */
+}
+
+.title {
+  font-size: 80px;
+  font-family: 'Kanit', sans-serif;
+  color: white;
+}
+
+.containerInput {
+  padding: 15px;
+  width: 300px;
+  background-color: rgb(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.search {
+  height: 50px;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  width: 250px;   
+}
+
+.lupa {
+  cursor: pointer;
+}
+
