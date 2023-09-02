@@ -14,6 +14,7 @@
 }
 
 .containerInput {
+  margin: 15px 15px;
   padding: 15px;
   width: 300px;
   background-color: rgb(255, 255, 255, 0.2);
@@ -33,5 +34,26 @@
 
 .lupa {
   cursor: pointer;
+  transition: transform 0.4s;
+  background-color: transparent;
+  border: none;
+}
+.lupa:hover {
+  transform: scale(1.2);
+}
+
+.main {
+  background-color: rgb(218, 218, 218);
+  height: 200px;
+  width: 500px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main span {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 600;
 }
 
