@@ -14,7 +14,7 @@ function App() {
     }
     else {
       try {
-        const response = await api.get(`${input}`);
+        const response = await api.get(`${input}/json`);
       }
       catch {
         alert("Cep Inválido.");
@@ -58,4 +58,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
