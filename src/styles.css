@@ -11,7 +11,17 @@
   font-size: 80px;
   font-family: 'Kanit', sans-serif;
   color: white;
+  animation: title 2s;
 }
+
+@keyframes title {
+  from {
+    transform: rotateX(90deg);
+    }
+  to {
+    transform: rotateX(0deg);
+    }
+  }
 
 .containerInput {
   margin: 15px;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './styles.css';
@@ -21,11 +21,19 @@ function App() {
         setInput("");
       }
       catch {
-        alert("Cep Inválido.");
-        setInput(""); // isso é para limpar o campo para facilitar a reescrita do usuário dado a incoerência.
+          alert("Cep Inválido.");
+          setInput(""); // isso é para limpar o campo para facilitar a reescrita do usuário dado a incoerência.
       }
     }
   }
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      handleSearch();
+    }
+  };
+
   return (
     <> {/* esses <></> são fragmentos que permite mais de um elemento HTML a ser inserido*/}
       <div className="container">
@@ -37,7 +45,12 @@ function App() {
           placeholder='Digite seu cep...' 
           value={input}
           onChange={(e) => setInput(e.target.value)} 
+          onKeyUp={handleKeyPress}
           />
+          
+          {/* OnChange define a função que guarda no evento input as infos escritas no campo de formulário*/}
+          {/* onKeyUp adiciona a possbilidade de chamar a função princpal ao apertar um botão que no exemplo
+          a função handleKeyPress define como enter*/}
           
           <button className="lupa" onClick={handleSearch}> 
           {/* CUIDADO QUE NO ON CLICK NÃO BOTE A FUNÇÃO COM () APENAS SUA REFERÊNCIA, SE NÃO, NÃO FUNCIONA*/}
