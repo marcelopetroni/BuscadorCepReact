@@ -7,7 +7,8 @@ import api from './services/api';
 
 function App() {
   const [input, setInput] = useState('');
-
+  const [cep, setCep] = useState('');
+  
   async function handleSearch() {
     if(input == '') {
       alert("Cep não informado.");
@@ -16,9 +17,12 @@ function App() {
     else {
       try {
         const response = await api.get(`${input}/json`);
+        setCep(response.data);
+        setInput("");
       }
       catch {
         alert("Cep Inválido.");
+        setInput(""); // isso é para limpar o campo para facilitar a reescrita do usuário dado a incoerência.
       }
     }
   }
@@ -46,14 +50,15 @@ function App() {
           </button>
         </div>
 
+        {Object.keys(cep).length > 0 && (
         <main className="main">
-          <h2 className='info'>Cep:</h2>
-          <span className='info'>Cidade: </span>
-          <span className='info'>Rua: </span>
-          <span className='info'>Complemento: </span>
-          <span className='info'>Bairro: </span>
+          <h2 className='info'>Cep: {cep.cep}</h2>
+          <span className='info'>Cidade: {cep.localidade} - {cep.uf} </span>
+          <span className='info'>Rua: {cep.logradouro} </span>
+          <span className='info'>Bairro: {cep.bairro}</span>
+          <span className='info'>Complemento: {cep.complemento} </span>
         </main>
-
+        )}
       </div>
 
     </>
