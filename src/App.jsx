@@ -29,11 +29,11 @@ function App() {
         </div>
 
         <main className="main">
-          <h2>Cep:</h2>
-          <span>Cidade: </span>
-          <span>Rua: </span>
-          <span>Complemento: </span>
-          <span>Bairro: </span>
+          <h2 className='info'>Cep:</h2>
+          <span className='info'>Cidade: </span>
+          <span className='info'>Rua: </span>
+          <span className='info'>Complemento: </span>
+          <span className='info'>Bairro: </span>
         </main>
 
       </div>
