@@ -20,6 +20,7 @@ function App() {
           
           <button className="lupa">
           <FiSearch
+            className='botao'
             size = {25}
             color = "#FFF"
           />
@@ -28,7 +29,7 @@ function App() {
         </div>
 
         <main className="main">
-          <span>Cep:</span>
+          <h2>Cep:</h2>
           <span>Cidade: </span>
           <span>Rua: </span>
           <span>Complemento: </span>
