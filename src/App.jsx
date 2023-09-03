@@ -1,12 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './styles.css'
-import { FiSearch } from 'react-icons/fi'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './styles.css';
+import { FiSearch } from 'react-icons/fi';
+import api from './services/api';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [input, setInput] = useState('');
 
+  async function handleSearch() {
+    if(input == '') {
+      return;
+    }
+    else {
+      try {
+        const response = await api.get(`${input}`);
+      }
+      catch {
+        alert("Cep Inválido.");
+      }
+    }
+  }
   return (
     <> {/* esses <></> são fragmentos que permite mais de um elemento HTML a ser inserido*/}
       <div className="container">
@@ -16,9 +30,11 @@ function App() {
           <input type="text" 
           className="search"
           placeholder='Digite seu cep...' 
+          value={input}
+          onChange={(e) => setInput(e.target.value)} 
           />
           
-          <button className="lupa">
+          <button className="lupa" onClick={handleSearch()}>
           <FiSearch
             className='botao'
             size = {25}
