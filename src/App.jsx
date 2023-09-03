@@ -10,6 +10,7 @@ function App() {
 
   async function handleSearch() {
     if(input == '') {
+      alert("Cep não informado.");
       return;
     }
     else {
@@ -34,7 +35,8 @@ function App() {
           onChange={(e) => setInput(e.target.value)} 
           />
           
-          <button className="lupa" onClick={handleSearch()}>
+          <button className="lupa" onClick={handleSearch}> 
+          {/* CUIDADO QUE NO ON CLICK NÃO BOTE A FUNÇÃO COM () APENAS SUA REFERÊNCIA, SE NÃO, NÃO FUNCIONA*/}
           <FiSearch
             className='botao'
             size = {25}
