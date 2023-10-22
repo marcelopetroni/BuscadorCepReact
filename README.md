@@ -1,6 +1,7 @@
 # Projeto React + Vite
 
 Um simples buscador de Cep que ao ser fornecido o valor, retorna informações do local como cidade, bairro, rua, etc.
+Link do deploy: https://buscador-cep-react-phi.vercel.app/
 
 ## Considerações importantes
 foi instalado as seguintes bibliotecas: 
