@@ -7,7 +7,8 @@ function App() {
   const [input, setInput] = useState('');
   const [cep, setCep] = useState('');
   
-  async function handleSearch() {
+  async function handleSearch(e) {
+    e.preventDefault();
     if(input == '') {
       alert("Cep não informado.");
       return;
@@ -25,41 +26,35 @@ function App() {
     }
   }
 
-  const handleKeyPress = (event) => {
-    if(event.key == 'Enter') {
-      event.preventDefault();
-    }
-  }
-
   return (
     <> {/* esses <></> são fragmentos que permite mais de um elemento HTML a ser inserido*/}
       <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap" rel="stylesheet"></link>
       <div className="container">
         <h1 className='title'>Buscador CEP</h1>
-
-        <div className="containerInput">
-          <input type="text" 
-          className="search"
-          placeholder='Digite seu cep...' 
-          value={input}
-          onChange={(e) => setInput(e.target.value)} 
-          onKeyUp={handleKeyPress}
-          />
-          
-          {/* OnChange define a função que guarda no evento input as infos escritas no campo de formulário*/}
-          {/* onKeyUp adiciona a possibilidade de chamar a função principal ao apertar um botão que no exemplo
-          a função handleKeyPress define como enter*/}
-          
-          <button className="lupa" onClick={handleSearch}> 
-          {/* CUIDADO QUE NO ON CLICK NÃO BOTE A FUNÇÃO COM () APENAS SUA REFERÊNCIA, SE NÃO, NÃO FUNCIONA*/}
-          <FiSearch
-            className='botao'
-            size = {25}
-            color = "#FFF"
-          />
-      
-          </button>
-        </div>
+        <form onSubmit={handleSearch}>
+          <div className="containerInput">
+            <input type="text" 
+            className="search"
+            placeholder='Digite seu cep...' 
+            value={input}
+            onChange={(e) => setInput(e.target.value)} 
+            />
+            
+            {/* OnChange define a função que guarda no evento input as infos escritas no campo de formulário*/}
+            {/* onKeyUp adiciona a possibilidade de chamar a função principal ao apertar um botão que no exemplo
+            a função handleKeyPress define como enter*/}
+            
+            <button type="submit" className="lupa" onClick={handleSearch}> 
+            {/* CUIDADO QUE NO ON CLICK NÃO BOTE A FUNÇÃO COM () APENAS SUA REFERÊNCIA, SE NÃO, NÃO FUNCIONA*/}
+            <FiSearch
+              className='botao'
+              size = {25}
+              color = "#FFF"
+            />
+        
+            </button>
+          </div>
+          </form>
 
         {Object.keys(cep).length > 0 && (
         <main className="main">
