@@ -26,14 +26,14 @@ function App() {
   }
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
+    if(event.key == 'Enter') {
       event.preventDefault();
-      handleSearch();
     }
-  };
+  }
 
   return (
     <> {/* esses <></> são fragmentos que permite mais de um elemento HTML a ser inserido*/}
+      <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap" rel="stylesheet"></link>
       <div className="container">
         <h1 className='title'>Buscador CEP</h1>
 
@@ -47,7 +47,7 @@ function App() {
           />
           
           {/* OnChange define a função que guarda no evento input as infos escritas no campo de formulário*/}
-          {/* onKeyUp adiciona a possbilidade de chamar a função princpal ao apertar um botão que no exemplo
+          {/* onKeyUp adiciona a possibilidade de chamar a função principal ao apertar um botão que no exemplo
           a função handleKeyPress define como enter*/}
           
           <button className="lupa" onClick={handleSearch}> 
